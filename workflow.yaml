@@ -1,0 +1,17 @@
+name: 02 - workflow Events
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 /1 * * *'
+  workflow_dispatch:
+
+
+
+jobs:
+echo-job:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Echo
+      run: echo "This job runs on push, pull request, schedule, and manual trigger events by a(n)  ${ { github.event_name } } event."
